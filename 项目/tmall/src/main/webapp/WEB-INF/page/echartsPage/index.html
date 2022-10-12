@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../../res/echartsFile/js/flexible.js"></script>
+    <link rel="stylesheet" href="../../../res/echartsFile/css/style.css">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../../../res/echartsFile/js/echarts.min.js"></script>
+    <script src="../../../res/echartsFile/js/china.js"></script>
+    <script type="text/javascript">
+        var slidint;
+        function newTimer() {
+          stopit();
+          var today;
+          today = new Date();
+          var str = today.toLocaleDateString();
+          str += "  " + week();
+          str += "  " + today.toLocaleTimeString();
+          var o = document.getElementById("lblDateTime");
+          o.innerHTML = str;
+          slidint = setTimeout(newTimer, 1000);
+        } 
+        function stopit() {
+          clearTimeout(slidint);
+        }
+        function week() {
+          var d, day, x, s = " ";
+          var x = new Array("星期日", "星期一", "星期二");
+          var x = x.concat("星期三", "星期四", "星期五");
+          var x = x.concat("星期六");
+          d = new Date();
+          day = d.getDay();
+          return (s += x[day]);
+        }
+        window.onload = function() {
+          newTimer();
+        }
+      </script>
+    
+</head>
+<body>
+    
+    <!--页面头部-->
+    <header>
+        <h1>数据可视化</h1>
+        <div class="showtime" id="lblDateTime"></div>
+    </header>
+    <!--页面主体-->
+    <div class="mainbox">
+        <div class="column">
+                  <div class="panel bar">
+                      <h2>柱形图-周增长量</h2>
+                      <div class="chart"></div>
+                      <div class="panel_footer"></div>
+                  </div>
+                  <div class="panel line">
+                      <h2>折线图-增长变化
+                        <a herf="javascript:;" id="line2019">2019</a>
+                        <a herf="javascript:;" id="line2020">2020</a>
+                      </h2>
+                      <div class="chart"></div>
+                      <div class="panel_footer"></div>
+                  </div>
+                  <div class="panel pie">
+                      <h2>饼形图-年龄分布</h2>
+                      <div class="chart"></div>
+                      <div class="panel_footer"></div>
+                  </div>
+        </div>
+        <div class="column">
+              <!--数字内容-->
+              <div class="no">
+              <!--数字-->
+                  <div class="no_hd">
+                    <ul>
+                      <li>12345</li>
+                      <li>14325</li>
+                    </ul>
+                  </div>
+              <!--内容-->
+                  <div class="no_bd">
+                      <ul>
+                          <li>增长人数</li>
+                          <li>总人数</li>
+                      </ul>
+                  </div>
+              </div>
+              <!--地图-->
+              <div class="map">
+                <div class="map1"></div>
+                <div class="map2"></div>
+                <div class="map3"></div>
+                <div class="chart"></div>
+              </div>
+        </div>
+        <div class="column">
+            <div class="panel bar1">
+                <h2>柱形图-地区增长</h2>
+                 <!--<button id="button">添加</button>
+                <button id="button">删除</button>
+                <button id="button">修改</button>
+                <button id="button">查询</button>-->
+                <div class="chart"></div>
+                <div class="panel_footer"></div>
+            </div>
+            <div class="panel line1">
+                <h2>折线图-月增长量</h2>
+                <div class="chart"></div>
+                <div class="panel_footer"></div>
+            </div>
+            <div class="panel pie1">
+                <h2>饼形图-地区分布</h2>
+                <div class="chart"></div>
+                <div class="panel_footer"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../res/echartsFile/jss/echartsFile/js/index.js"></script>
+</body>
+</html>
